@@ -1,0 +1,4 @@
+drop table ANONYMOUS.EMPLOYEE_WORKED_HOURS cascade constraints;
+drop table ANONYMOUS.EMPLOYEES cascade constraints;
+drop table ANONYMOUS.GENDERS cascade constraints;
+drop table ANONYMOUS.JOBS cascade constraints;

@@ -1,0 +1,29 @@
+SEQUENCES
+
+ create sequence SE_EMPLOYEE
+  start with 1
+  increment by 1
+  maxvalue 99999
+  minvalue 1
+ nocycle;
+
+ create sequence SE_GENDER
+  start with 1
+  increment by 1
+  maxvalue 99999
+  minvalue 1
+nocycle;
+
+ create sequence SE_JOB
+  start with 1
+  increment by 1
+  maxvalue 99999
+  minvalue 1
+ nocycle;
+
+create sequence SE_WORKEDHOURS
+  start with 1
+  increment by 1
+  maxvalue 99999
+  minvalue 1
+ nocycle;

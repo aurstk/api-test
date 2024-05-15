@@ -57,3 +57,18 @@ If you want to learn more about building native executables, please consult http
 Easily start your RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+
+Querys incluidos en los archivos 
+
+SEQUENCES.txt
+create.sql
+drop.sq
+
+Coleccion para probar el servicio en postamn en el archivo 
+
+API-TEST.postman_collection.json
+
+Java version: 21.0.3
+apache-maven-3.9.6
+
+

@@ -10,7 +10,7 @@ import org.test.model.DTO.ResponseDTO;
 import org.test.model.Employee;
 import org.test.model.Gender;
 import org.test.model.Job;
-import org.test.repository.EmployeeRepository;
+import org.test.repository.EmployeeRepositoryImpl;
 import org.test.repository.JobRepository;
 
 import java.util.List;
@@ -21,7 +21,7 @@ import static org.test.utility.ValidarEdad.esMayorDeEdad;
 public class EmployeeService {
 
     @Inject
-    EmployeeRepository employeeRepository;
+    EmployeeRepositoryImpl employeeRepository;
     @Inject
     EntityManager entityManager;
     @Inject
@@ -31,6 +31,8 @@ public class EmployeeService {
     public List<Employee> getAllEmployees(){
         return employeeRepository.listAll();
     }
+
+
   /*  @Transactional
     public List<Employee> getAllEmployeesByJob(Long id_job){
 
@@ -45,8 +47,10 @@ public class EmployeeService {
         try {
             Gender gender = entityManager.find(Gender.class, employeeRequest.getGender_id());
             Job job = entityManager.find(Job.class, employeeRequest.getJob_id());
+            boolean age = esMayorDeEdad(employeeRequest.getBirthdate(), edadMinima);
+            int exist = this.existsEmployee(employeeRequest.getName(),employeeRequest.getLast_name());
 
-            if (gender == null || job == null || !(esMayorDeEdad( employeeRequest.getBirthdate(), edadMinima)) ) {
+            if (gender == null || job == null || !age || exist < 0 ) {
                 throw new RuntimeException("datos incorrectos");
             }
             Employee employee = new Employee();
@@ -73,7 +77,7 @@ public class EmployeeService {
         }
     }
 
-    public boolean existeEmpleado(){
-        return false;
+    private int existsEmployee(String name, String lastName){
+        return employeeRepository.searchEmployeeByNames(name,lastName);
     }
 }
